@@ -13,9 +13,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-slate-800 font-black text-sm shadow-inner">HM</div>
+                <img src="{{ asset('images/hmpps-logo.png') }}"
+                     alt="HM Prison &amp; Probation Service"
+                     class="h-8 w-auto bg-white px-2 py-0.5 rounded flex-shrink-0">
                 <div>
-                    <div class="text-white font-bold text-sm tracking-wide">HMPPS</div>
                     <div class="text-slate-300 text-xs">Attendance Management Hub</div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 body{font-family:Arial,sans-serif;font-size:11px;color:#1a1a2e;margin:30px}
 .header{border-bottom:3px solid #1a1a2e;padding-bottom:12px;margin-bottom:20px}
-.crest{font-weight:900;font-size:18px;color:#1a1a2e}
+.crest{display:flex;align-items:center;gap:10px}.crest-text{font-weight:900;font-size:14px;color:#1a1a2e}
 .subtitle{color:#666;font-size:10px}
 h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;margin:16px 0 8px}
 .field{display:flex;margin-bottom:6px}
