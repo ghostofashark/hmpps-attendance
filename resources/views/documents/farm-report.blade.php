@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 body{font-family:Arial,sans-serif;font-size:11px;color:#1a1a2e;margin:30px}
 .header{border-bottom:3px solid #1a1a2e;padding-bottom:12px;margin-bottom:20px}
-.crest{display:flex;align-items:center;gap:10px}.crest-text{font-weight:900;font-size:14px;color:#1a1a2e}
+.logo{height:48px;width:auto}
 .subtitle{color:#666;font-size:10px}
 h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;margin:16px 0 8px}
 .field{display:flex;margin-bottom:6px}
@@ -13,7 +13,7 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><div class="crest"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 97" style="height:40px;width:auto;fill:#1a1a2e;vertical-align:middle" aria-hidden="true"><path d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.3-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1h-4.1v-.2l-9.5-3.2c-.3.2-.7.2-1 .2H38l-3.2-9.8h-4.9l3.2 9.8h-1.6c-.4 0-.7 0-1-.1l-9.6 3.3v.1H16v-.1l5-15.4c.4-.3.7-.6.9-.9l8.8 4.7V9.3L22 12.1c-.3-.3-.6-.6-.9-.9L24.7 0H11.9l3.6 11.2c-.3.3-.6.5-.9.9l-8.9-2.8v13.1l8.9-4.7c.3.3.6.7.9.9L10 33h-.1v34.4h.1l1.3 1.5H6.7l.5 1.7.2.8h117.9l.2-.8.5-1.7h-4.6l1.3-1.5V33h-.1L116.5 18.7c.3-.3.6-.7.9-.9z"/></svg></div><div class="subtitle">His Majesty's Prison and Probation Service</div></div>
+<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"></div>
 <h1 style="font-size:16px;margin-bottom:4px">Formal Attendance Review Meeting (FARM) Record</h1>
 <h2>Employee &amp; Case Details</h2>
 <div class="field"><span class="label">Name:</span><span class="value">{{ DVArabsence->staff->full_name }}</span></div>

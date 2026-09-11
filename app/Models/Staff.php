@@ -4,8 +4,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 class Staff extends Model {
     use HasFactory;
-    protected $fillable = ['prison_id','first_name','last_name','payroll_number','job_title','department','band','email','phone','mobile','home_address','next_of_kin_name','next_of_kin_phone','line_manager_id','hobba_id','date_of_birth','date_joined','is_active'];
-    protected $casts = ['date_of_birth'=>'date','date_joined'=>'date','is_active'=>'boolean'];
+    protected $fillable = [
+        'prison_id','first_name','last_name','payroll_number','job_title','department',
+        'band','email','phone','mobile','home_address','next_of_kin_name','next_of_kin_phone',
+        'line_manager_id','hobba_id','date_of_birth','date_joined','is_active',
+        'contracted_days_per_week',
+    ];
+    protected $casts = ['date_of_birth'=>'date','date_joined'=>'date','is_active'=>'boolean','contracted_days_per_week'=>'float'];
     public function prison() { return $this->belongsTo(Prison::class); }
     public function lineManager() { return $this->belongsTo(User::class, 'line_manager_id'); }
     public function hobba() { return $this->belongsTo(User::class, 'hobba_id'); }
@@ -19,9 +24,12 @@ class Staff extends Model {
         return $this->first_name.' '.$this->last_name;
     }
     public function getBradfordScoreAttribute(): int {
-        $absences = $this->absenceRecords()->whereYear('start_date', now()->year)->get();
+        $absences = $this->absenceRecords()
+            ->whereYear('start_date', now()->year)
+            ->whereNull('exclusion_reason')
+            ->get();
         $spells = $absences->count();
-        $days = $absences->sum(fn($a) => $a->duration_days);
-        return ($spells * $spells) * $days;
+        $days   = $absences->sum(fn($a) => $a->duration_days);
+        return (int)(($spells * $spells) * $days);
     }
 }

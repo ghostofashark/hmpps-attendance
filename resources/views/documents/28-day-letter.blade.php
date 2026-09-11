@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 body{font-family:Arial,sans-serif;font-size:11px;color:#1a1a2e;margin:30px}
 .header{border-bottom:3px solid #1a1a2e;padding-bottom:12px;margin-bottom:20px}
-.crest{display:flex;align-items:center;gap:10px}.crest-text{font-weight:900;font-size:14px;color:#1a1a2e}
+.logo{height:48px;width:auto}
 .subtitle{color:#666;font-size:10px}
 h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;margin:16px 0 8px}
 .field{display:flex;margin-bottom:6px}
@@ -13,7 +13,7 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><div class="crest">HMPPS &mdash; {{ DVArabsence->prison->name }}</div></div>
+<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ DVArabsence->prison->name }}</div></div>
 <p>{{ now()->format('d F Y') }}</p>
 <p>Dear {{ DVArabsence->staff->first_name }},</p>
 <h2>28-Day Review / Home Visit &mdash; Attendance Management</h2>

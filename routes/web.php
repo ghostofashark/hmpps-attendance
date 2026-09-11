@@ -18,6 +18,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('absences', AbsenceController::class);
     Route::post('absences/{absence}/toggle-daily-list', [AbsenceController::class, 'toggleDailyList'])->name('absences.toggle-daily-list');
     Route::get('absences/{absence}/rtw', [AbsenceController::class, 'rtwWizard'])->name('absences.rtw');
+    Route::post('absences/{absence}/link/{previous}', [AbsenceController::class, 'linkAbsences'])->name('absences.link');
     Route::post('absences/{absence}/contact-logs', [ContactLogController::class, 'store'])->name('contact-logs.store');
     Route::delete('contact-logs/{contactLog}', [ContactLogController::class, 'destroy'])->name('contact-logs.destroy');
     Route::get('daily-sick-list', [DailySickListController::class, 'index'])->name('daily-sick-list');
