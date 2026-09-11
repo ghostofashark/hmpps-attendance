@@ -12,7 +12,7 @@ class StatisticsController extends Controller {
             ->when($scope==='local', fn($q) => $q->where('prison_id', $prisonId))
             ->groupBy('illness_type')->get();
         $byPrison = Prison::withCount(['absenceRecords as active_count' => fn($q) => $q->active()])->get();
-        $monthly = AbsenceRecord::select(DB::raw('strftime(''%Y-%m'', start_date) as month'), DB::raw('count(*) as total'))
+        $monthly = AbsenceRecord::select(DB::raw("strftime('%Y-%m', start_date) as month"), DB::raw('count(*) as total'))
             ->when($scope==='local', fn($q) => $q->where('prison_id', $prisonId))
             ->groupBy('month')->orderBy('month')->limit(12)->get();
         return view('statistics.index', compact('byIllness','byPrison','monthly','scope'));
