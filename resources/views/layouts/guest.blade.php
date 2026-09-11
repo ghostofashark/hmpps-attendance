@@ -14,9 +14,7 @@
     <!-- HMPPS Header Bar -->
     <div class="bg-gradient-to-r from-slate-800 to-slate-900 border-b border-slate-700 shadow-xl">
         <div class="max-w-7xl mx-auto px-6 py-3 flex items-center gap-4">
-            <img src="{{ asset('images/hmpps-logo.png') }}"
-                 alt="HM Prison &amp; Probation Service"
-                 class="h-10 w-auto bg-white px-2 py-0.5 rounded flex-shrink-0">
+            <div class="bg-white text-slate-800 font-black text-sm px-3 py-1 rounded tracking-widest flex-shrink-0">HMPPS</div>
             <div>
                 <div class="text-slate-400 text-xs">Attendance Management Hub</div>
             </div>
@@ -28,9 +26,7 @@
 
         <!-- Logo + Title above card -->
         <div class="flex flex-col items-center mb-8">
-            <img src="{{ asset('images/hmpps-logo.png') }}"
-                 alt="HM Prison &amp; Probation Service"
-                 class="h-16 w-auto bg-white px-4 py-2 rounded-xl shadow-lg mb-4">
+            <div class="bg-white text-slate-800 font-black text-2xl px-6 py-3 rounded-xl shadow-lg mb-4 tracking-widest">HMPPS</div>
             <h1 class="text-white font-bold text-xl tracking-wide">Attendance Management Hub</h1>
         </div>
 
@@ -53,7 +49,7 @@
 
     <!-- Footer -->
     <div class="border-t border-slate-700 py-4 text-center">
-        <p class="text-slate-600 text-xs">© Crown Copyright &mdash; HM Prison &amp; Probation Service</p>
+        <p class="text-slate-600 text-xs">&copy; Crown Copyright &mdash; HM Prison &amp; Probation Service</p>
     </div>
 
 </body>

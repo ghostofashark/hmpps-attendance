@@ -18,16 +18,16 @@ tr:nth-child(even) td { background: #f8f9fa; }
 <table>
 <thead><tr><th>Name</th><th>Payroll</th><th>Department</th><th>Band</th><th>Illness</th><th>Days Absent</th><th>Date Started</th><th>Risk</th></tr></thead>
 <tbody>
-@foreach($absences->sortBy('staff.last_name') as DVArabsence)
+@foreach($absences->sortBy('staff.last_name') as $absence)
 <tr>
-  <td>{{ DVArabsence->staff->full_name }}</td>
-  <td>{{ DVArabsence->staff->payroll_number }}</td>
-  <td>{{ DVArabsence->staff->department }}</td>
-  <td>{{ DVArabsence->staff->band }}</td>
-  <td>{{ DVArabsence->illness_type_label }}</td>
-  <td><strong>{{ DVArabsence->duration_days }}</strong></td>
-  <td>{{ DVArabsence->start_date->format('d M Y') }}</td>
-  <td><span class="risk-{{ DVArabsence->risk_rating }}">{{ strtoupper(DVArabsence->risk_rating) }}</span></td>
+  <td>{{ $absence->staff->full_name }}</td>
+  <td>{{ $absence->staff->payroll_number }}</td>
+  <td>{{ $absence->staff->department }}</td>
+  <td>{{ $absence->staff->band }}</td>
+  <td>{{ $absence->illness_type_label }}</td>
+  <td><strong>{{ $absence->duration_days }}</strong></td>
+  <td>{{ $absence->start_date->format('d M Y') }}</td>
+  <td><span class="risk-{{ $absence->risk_rating }}">{{ strtoupper($absence->risk_rating) }}</span></td>
 </tr>
 @endforeach
 </tbody></table>

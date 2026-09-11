@@ -42,22 +42,22 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-50">
-        @foreach($absences as DVArabsence)
+        @foreach($absences as $absence)
         <tr>
-          <td class="px-4 py-3 font-medium">{{ DVArabsence->staff->full_name }}<div class="text-xs text-slate-400">{{ DVArabsence->staff->lineManager->name ?? 'Unassigned' }}</div></td>
-          <td class="px-4 py-3">{{ DVArabsence->illness_type_label }}</td>
-          <td class="px-4 py-3 text-center font-bold">{{ DVArabsence->duration_days }}</td>
-          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ DVArabsence->risk_color }}">{{ strtoupper(DVArabsence->risk_rating) }}</span></td>
+          <td class="px-4 py-3 font-medium">{{ $absence->staff->full_name }}<div class="text-xs text-slate-400">{{ $absence->staff->lineManager->name ?? 'Unassigned' }}</div></td>
+          <td class="px-4 py-3">{{ $absence->illness_type_label }}</td>
+          <td class="px-4 py-3 text-center font-bold">{{ $absence->duration_days }}</td>
+          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ $absence->risk_color }}">{{ strtoupper($absence->risk_rating) }}</span></td>
           <td class="px-4 py-3 text-center">
-            @if(DVArabsence->contactLogs->isEmpty()) <span class="text-red-500 font-bold">None</span>
-            @else <span class="text-green-600">{{ DVArabsence->contactLogs->count() }}</span> @endif
+            @if($absence->contactLogs->isEmpty()) <span class="text-red-500 font-bold">None</span>
+            @else <span class="text-green-600">{{ $absence->contactLogs->count() }}</span> @endif
           </td>
           <td class="px-4 py-3 text-center">
-            @php $od = DVArabsence->triggerPoints->where('is_overdue',true)->whereNull('completed_at')->count() @endphp
+            @php $od = $absence->triggerPoints->where('is_overdue',true)->whereNull('completed_at')->count() @endphp
             @if($od > 0) <span class="text-red-600 font-bold">{{ $od }}</span>
             @else <span class="text-green-600">None</span> @endif
           </td>
-          <td class="px-4 py-3"><a href="{{ route('absences.show', DVArabsence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
+          <td class="px-4 py-3"><a href="{{ route('absences.show', $absence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
         </tr>
         @endforeach
       </tbody>

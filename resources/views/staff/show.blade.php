@@ -52,15 +52,15 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-50">
-        @forelse($staff->absenceRecords->sortByDesc('start_date') as DVArabsence)
+        @forelse($staff->absenceRecords->sortByDesc('start_date') as $absence)
         <tr>
-          <td class="px-4 py-3">{{ DVArabsence->start_date->format('d M Y') }}</td>
-          <td class="px-4 py-3">{{ DVArabsence->end_date?->format('d M Y') ?? 'Ongoing' }}</td>
-          <td class="px-4 py-3">{{ DVArabsence->illness_type_label }}</td>
-          <td class="px-4 py-3 text-center font-bold">{{ DVArabsence->duration_days }}</td>
-          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ DVArabsence->risk_color }}">{{ strtoupper(DVArabsence->risk_rating) }}</span></td>
-          <td class="px-4 py-3">{{ ucfirst(str_replace('_',' ',DVArabsence->status)) }}</td>
-          <td class="px-4 py-3"><a href="{{ route('absences.show', DVArabsence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
+          <td class="px-4 py-3">{{ $absence->start_date->format('d M Y') }}</td>
+          <td class="px-4 py-3">{{ $absence->end_date?->format('d M Y') ?? 'Ongoing' }}</td>
+          <td class="px-4 py-3">{{ $absence->illness_type_label }}</td>
+          <td class="px-4 py-3 text-center font-bold">{{ $absence->duration_days }}</td>
+          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ $absence->risk_color }}">{{ strtoupper($absence->risk_rating) }}</span></td>
+          <td class="px-4 py-3">{{ ucfirst(str_replace('_',' ',$absence->status)) }}</td>
+          <td class="px-4 py-3"><a href="{{ route('absences.show', $absence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
         </tr>
         @empty <tr><td colspan="7" class="px-4 py-8 text-center text-slate-400">No absences recorded.</td></tr>
         @endforelse

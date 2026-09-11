@@ -64,29 +64,29 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-50">
-        @foreach($activeAbsences as DVArabsence)
+        @foreach($activeAbsences as $absence)
         <tr class="hover:bg-slate-50">
           <td class="px-4 py-3 font-medium">
-            <a href="{{ route('staff.show', DVArabsence->staff_id) }}">{{ DVArabsence->staff->full_name }}</a>
-            <div class="text-xs text-slate-400">{{ DVArabsence->staff->department }} &middot; {{ DVArabsence->staff->band }}</div>
+            <a href="{{ route('staff.show', $absence->staff_id) }}">{{ $absence->staff->full_name }}</a>
+            <div class="text-xs text-slate-400">{{ $absence->staff->department }} &middot; {{ $absence->staff->band }}</div>
           </td>
-          <td class="px-4 py-3 text-slate-600">{{ DVArabsence->illness_type_label }}</td>
-          <td class="px-4 py-3 text-center font-bold">{{ DVArabsence->duration_days }}</td>
+          <td class="px-4 py-3 text-slate-600">{{ $absence->illness_type_label }}</td>
+          <td class="px-4 py-3 text-center font-bold">{{ $absence->duration_days }}</td>
           <td class="px-4 py-3 text-center">
-            <span class="px-2 py-1 rounded-full text-xs font-bold border {{ DVArabsence->risk_color }}">{{ strtoupper(DVArabsence->risk_rating) }}</span>
+            <span class="px-2 py-1 rounded-full text-xs font-bold border {{ $absence->risk_color }}">{{ strtoupper($absence->risk_rating) }}</span>
           </td>
           <td class="px-4 py-3 text-xs">
-            @php $next = DVArabsence->triggerPoints->whereNull('completed_at')->sortBy('action_due_date')->first() @endphp
+            @php $next = $absence->triggerPoints->whereNull('completed_at')->sortBy('action_due_date')->first() @endphp
             @if($next)
               <span class="{{ $next->is_overdue ? 'text-red-600 font-bold' : 'text-slate-500' }}">{{ $next->label }}<br>{{ $next->action_due_date->format('d M') }}</span>
             @else <span class="text-green-600">None due</span> @endif
           </td>
           <td class="px-4 py-3 text-xs text-slate-500">
-            @if(DVArabsence->contactLogs->isNotEmpty())
-              {{ DVArabsence->contactLogs->sortByDesc('contacted_at')->first()->contacted_at->diffForHumans() }}
+            @if($absence->contactLogs->isNotEmpty())
+              {{ $absence->contactLogs->sortByDesc('contacted_at')->first()->contacted_at->diffForHumans() }}
             @else <span class="text-amber-600 font-medium">No contact logged</span> @endif
           </td>
-          <td class="px-4 py-3"><a href="{{ route('absences.show', DVArabsence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
+          <td class="px-4 py-3"><a href="{{ route('absences.show', $absence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
         </tr>
         @endforeach
       </tbody>

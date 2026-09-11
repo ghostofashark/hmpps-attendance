@@ -13,11 +13,11 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ DVArabsence->prison->name }}</div></div>
+<div class="header"><span style="font-weight:900;font-size:14px;color:#1a1a2e;letter-spacing:1px">HM Prison &amp; Probation Service</span><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ $absence->prison->name }}</div></div>
 <p>{{ now()->format('d F Y') }}</p>
-<p>Dear {{ DVArabsence->staff->first_name }},</p>
+<p>Dear {{ $absence->staff->first_name }},</p>
 <h2>14-Day Review &mdash; Attendance Management</h2>
-<p>I am writing to invite you to a review meeting regarding your current absence from work, which commenced on <strong>{{ DVArabsence->start_date->format('d F Y') }}</strong>.</p>
+<p>I am writing to invite you to a review meeting regarding your current absence from work, which commenced on <strong>{{ $absence->start_date->format('d F Y') }}</strong>.</p>
 <p>In line with the HMPPS Supporting Attendance Policy, where a member of staff has been absent for 14 or more consecutive calendar days, a formal review is required.</p>
 <div class="box">
 <p><strong>Review Meeting Details:</strong></p>

@@ -13,17 +13,17 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ DVArabsence->prison->name }}</div></div>
+<div class="header"><span style="font-weight:900;font-size:14px;color:#1a1a2e;letter-spacing:1px">HM Prison &amp; Probation Service</span><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ $absence->prison->name }}</div></div>
 <p>{{ now()->format('d F Y') }}</p>
 <p><strong>Occupational Health Service</strong></p>
 <h2>Referral for Occupational Health Assessment</h2>
 <p>I am writing to refer the above-named employee for an Occupational Health assessment.</p>
 <h2>Employee Details</h2>
-<div class="field"><span class="label">Name:</span><span class="value">{{ DVArabsence->staff->full_name }}</span></div>
-<div class="field"><span class="label">Payroll Number:</span><span class="value">{{ DVArabsence->staff->payroll_number }}</span></div>
-<div class="field"><span class="label">Job Title:</span><span class="value">{{ DVArabsence->staff->job_title }}</span></div>
-<div class="field"><span class="label">Days Absent:</span><span class="value">{{ DVArabsence->duration_days }}</span></div>
-<div class="field"><span class="label">Illness Type:</span><span class="value">{{ DVArabsence->illness_type_label }}</span></div>
+<div class="field"><span class="label">Name:</span><span class="value">{{ $absence->staff->full_name }}</span></div>
+<div class="field"><span class="label">Payroll Number:</span><span class="value">{{ $absence->staff->payroll_number }}</span></div>
+<div class="field"><span class="label">Job Title:</span><span class="value">{{ $absence->staff->job_title }}</span></div>
+<div class="field"><span class="label">Days Absent:</span><span class="value">{{ $absence->duration_days }}</span></div>
+<div class="field"><span class="label">Illness Type:</span><span class="value">{{ $absence->illness_type_label }}</span></div>
 <h2>Questions for Occupational Health</h2>
 <div class="box">
 <ol>

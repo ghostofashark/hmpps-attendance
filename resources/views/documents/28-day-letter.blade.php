@@ -13,11 +13,11 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ DVArabsence->prison->name }}</div></div>
+<div class="header"><span style="font-weight:900;font-size:14px;color:#1a1a2e;letter-spacing:1px">HM Prison &amp; Probation Service</span><div class="subtitle" style="margin-top:4px;font-weight:600;color:#1a1a2e">{{ $absence->prison->name }}</div></div>
 <p>{{ now()->format('d F Y') }}</p>
-<p>Dear {{ DVArabsence->staff->first_name }},</p>
+<p>Dear {{ $absence->staff->first_name }},</p>
 <h2>28-Day Review / Home Visit &mdash; Attendance Management</h2>
-<p>Your absence commenced on <strong>{{ DVArabsence->start_date->format('d F Y') }}</strong> ({{ DVArabsence->duration_days }} days). In accordance with the HMPPS Attendance Management Policy, a 28-day review and/or home visit is now due.</p>
+<p>Your absence commenced on <strong>{{ $absence->start_date->format('d F Y') }}</strong> ({{ $absence->duration_days }} days). In accordance with the HMPPS Attendance Management Policy, a 28-day review and/or home visit is now due.</p>
 <p>This letter serves as notification that your manager will be in contact to arrange a welfare visit or meeting. The purpose is to provide support and discuss your expected return to work.</p>
 <div class="box"><p><strong>At this review we will discuss:</strong></p>
 <ul><li>Your current health and wellbeing</li><li>Occupational Health referral (if not already made)</li><li>Workplace adjustments that may assist your return</li><li>An expected return to work date</li><li>Any support services available to you</li></ul></div>

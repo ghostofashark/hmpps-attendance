@@ -13,16 +13,16 @@ h2{font-size:13px;color:#1a1a2e;border-bottom:1px solid #ddd;padding-bottom:4px;
 .official{background:#1a1a2e;color:white;text-align:center;padding:4px;font-size:9px;letter-spacing:2px;margin-bottom:16px}
 </style></head><body>
 <div class="official">OFFICIAL &mdash; SENSITIVE</div>
-<div class="header"><img src="{{ asset('images/hmpps-logo.png') }}" alt="HM Prison &amp; Probation Service" class="logo"></div>
+<div class="header"><span style="font-weight:900;font-size:14px;color:#1a1a2e;letter-spacing:1px">HM Prison &amp; Probation Service</span></div>
 <h1 style="font-size:16px;margin-bottom:4px">Formal Attendance Review Meeting (FARM) Record</h1>
 <h2>Employee &amp; Case Details</h2>
-<div class="field"><span class="label">Name:</span><span class="value">{{ DVArabsence->staff->full_name }}</span></div>
-<div class="field"><span class="label">Payroll Number:</span><span class="value">{{ DVArabsence->staff->payroll_number }}</span></div>
-<div class="field"><span class="label">Establishment:</span><span class="value">{{ DVArabsence->prison->name }}</span></div>
-<div class="field"><span class="label">Absence Started:</span><span class="value">{{ DVArabsence->start_date->format('d F Y') }}</span></div>
-<div class="field"><span class="label">Days Absent:</span><span class="value">{{ DVArabsence->duration_days }}</span></div>
-<div class="field"><span class="label">Bradford Score:</span><span class="value">{{ DVArabsence->staff->bradford_score }}</span></div>
-<div class="field"><span class="label">Risk Rating:</span><span class="value">{{ strtoupper(DVArabsence->risk_rating) }}</span></div>
+<div class="field"><span class="label">Name:</span><span class="value">{{ $absence->staff->full_name }}</span></div>
+<div class="field"><span class="label">Payroll Number:</span><span class="value">{{ $absence->staff->payroll_number }}</span></div>
+<div class="field"><span class="label">Establishment:</span><span class="value">{{ $absence->prison->name }}</span></div>
+<div class="field"><span class="label">Absence Started:</span><span class="value">{{ $absence->start_date->format('d F Y') }}</span></div>
+<div class="field"><span class="label">Days Absent:</span><span class="value">{{ $absence->duration_days }}</span></div>
+<div class="field"><span class="label">Bradford Score:</span><span class="value">{{ $absence->staff->bradford_score }}</span></div>
+<div class="field"><span class="label">Risk Rating:</span><span class="value">{{ strtoupper($absence->risk_rating) }}</span></div>
 <h2>Reason for FARM</h2>
 <div class="box"><br><br><br></div>
 <h2>Issues Discussed</h2>

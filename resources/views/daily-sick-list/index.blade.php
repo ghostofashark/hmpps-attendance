@@ -39,22 +39,22 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-50">
-        @foreach($absences->sortBy('staff.last_name') as DVArabsence)
-        <tr class="hover:bg-slate-50 {{ !DVArabsence->include_in_daily_list ? 'opacity-50' : '' }}">
-          <td class="px-4 py-3 font-medium">{{ DVArabsence->staff->full_name }}</td>
-          <td class="px-4 py-3 text-slate-400 text-xs">{{ DVArabsence->staff->payroll_number }}</td>
-          <td class="px-4 py-3 text-slate-500">{{ DVArabsence->staff->department }}<br><span class="text-xs">{{ DVArabsence->staff->band }}</span></td>
-          <td class="px-4 py-3">{{ DVArabsence->illness_type_label }}</td>
-          <td class="px-4 py-3 text-center font-bold">{{ DVArabsence->duration_days }}</td>
-          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ DVArabsence->risk_color }}">{{ strtoupper(DVArabsence->risk_rating) }}</span></td>
-          <td class="px-4 py-3 text-slate-500">{{ DVArabsence->start_date->format('d M') }}</td>
+        @foreach($absences->sortBy('staff.last_name') as $absence)
+        <tr class="hover:bg-slate-50 {{ !$absence->include_in_daily_list ? 'opacity-50' : '' }}">
+          <td class="px-4 py-3 font-medium">{{ $absence->staff->full_name }}</td>
+          <td class="px-4 py-3 text-slate-400 text-xs">{{ $absence->staff->payroll_number }}</td>
+          <td class="px-4 py-3 text-slate-500">{{ $absence->staff->department }}<br><span class="text-xs">{{ $absence->staff->band }}</span></td>
+          <td class="px-4 py-3">{{ $absence->illness_type_label }}</td>
+          <td class="px-4 py-3 text-center font-bold">{{ $absence->duration_days }}</td>
+          <td class="px-4 py-3 text-center"><span class="px-2 py-0.5 rounded-full text-xs font-bold border {{ $absence->risk_color }}">{{ strtoupper($absence->risk_rating) }}</span></td>
+          <td class="px-4 py-3 text-slate-500">{{ $absence->start_date->format('d M') }}</td>
           <td class="px-4 py-3 text-center">
-            <form method="POST" action="{{ route('absences.toggle-daily-list', DVArabsence) }}">
+            <form method="POST" action="{{ route('absences.toggle-daily-list', $absence) }}">
               @csrf
-              <button type="submit" class="w-8 h-8 rounded-full border-2 transition-all {{ DVArabsence->include_in_daily_list ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 text-gray-300' }}">{{ DVArabsence->include_in_daily_list ? '✓' : '○' }}</button>
+              <button type="submit" class="w-8 h-8 rounded-full border-2 transition-all {{ $absence->include_in_daily_list ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 text-gray-300' }}">{{ $absence->include_in_daily_list ? '✓' : '○' }}</button>
             </form>
           </td>
-          <td class="px-4 py-3"><a href="{{ route('absences.show', DVArabsence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
+          <td class="px-4 py-3"><a href="{{ route('absences.show', $absence) }}" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-lg">View</a></td>
         </tr>
         @endforeach
       </tbody>

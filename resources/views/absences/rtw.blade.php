@@ -11,7 +11,7 @@
   notes: ''
 }">
   <h1 class="text-2xl font-bold text-slate-800 mb-2">Return to Work Wizard</h1>
-  <p class="text-slate-500 text-sm mb-6">{{ DVArabsence->staff->full_name }} &mdash; Absent since {{ DVArabsence->start_date->format('d M Y') }} ({{ DVArabsence->duration_days }} days)</p>
+  <p class="text-slate-500 text-sm mb-6">{{ $absence->staff->full_name }} &mdash; Absent since {{ $absence->start_date->format('d M Y') }} ({{ $absence->duration_days }} days)</p>
 
   <div class="bg-white rounded-2xl shadow-xl p-6">
 
@@ -60,9 +60,9 @@
     <div x-show="step === 5">
       <p class="font-bold text-lg text-slate-800 mb-2">Step 5 of 6: Formal Action Check</p>
       <div class="bg-slate-50 border rounded-xl p-4 text-sm mb-4">
-        <p class="font-medium mb-2">Bradford Factor Score: <strong>{{ DVArabsence->staff->bradford_score }}</strong></p>
-        @if(DVArabsence->staff->bradford_score > 200) <p class="text-red-600">⚠ Score exceeds 200 — formal attendance action may be required.</p>
-        @elseif(DVArabsence->staff->bradford_score > 100) <p class="text-amber-600">⚠ Score exceeds 100 — management review recommended.</p>
+        <p class="font-medium mb-2">Bradford Factor Score: <strong>{{ $absence->staff->bradford_score }}</strong></p>
+        @if($absence->staff->bradford_score > 200) <p class="text-red-600">⚠ Score exceeds 200 — formal attendance action may be required.</p>
+        @elseif($absence->staff->bradford_score > 100) <p class="text-amber-600">⚠ Score exceeds 100 — management review recommended.</p>
         @else <p class="text-green-600">✓ Score within acceptable range.</p> @endif
       </div>
       <div><label class="block text-sm font-medium mb-1">Additional Manager Notes</label><textarea x-model="notes" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm"></textarea></div>
@@ -78,11 +78,11 @@
         <p><strong>Support needed:</strong> <span x-text="support.join(', ') || 'None identified'"></span></p>
         <p><strong>Adjustments:</strong> <span x-text="adjustments ? adjustmentDetail : 'None'"></span></p>
       </div>
-      <form method="POST" action="{{ route('documents.generate', [DVArabsence, 'rtw_form']) }}">
+      <form method="POST" action="{{ route('documents.generate', [$absence, 'rtw_form']) }}">
         @csrf
         <button type="submit" class="w-full bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 mb-3">Generate RTW Document &amp; Complete</button>
       </form>
-      <a href="{{ route('absences.show', DVArabsence) }}" class="block text-center text-slate-500 text-sm">Complete without generating document</a>
+      <a href="{{ route('absences.show', $absence) }}" class="block text-center text-slate-500 text-sm">Complete without generating document</a>
     </div>
 
     <!-- Progress indicator -->
